@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+        body {
+            font-family: "Nunito", serif;
+            font-size: 20px; 
+            margin: 20px;
+        }
+        h1, h4 {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Question</h1>
+        <form>
+            <% data.forEach((item)=>{ %>
+                <div class="form-group">
+                    <h4><%= item.QID %>. <%= item.Stem %></h4>
+                
+                    <div class="form-check">
+                        <input type="radio" name="choice<%=item.QID%>" <%= item.Correct === 'A' ? 'checked' : '' %>>
+                        <label class="form-check-label"><%=item.Alt_A%></label> <br>
+    
+                        <input type="radio" name="choice<%=item.QID%>" <%= item.Correct === 'B' ? 'checked' : '' %>>
+                        <label class="form-check-label"><%=item.Alt_B%></label> <br>
+    
+                        <input type="radio" name="choice<%=item.QID%>" <%= item.Correct === 'C' ? 'checked' : '' %>>
+                        <label class="form-check-label"><%=item.Alt_C%></label> <br>
+    
+                        <input type="radio" name="choice<%=item.QID%>" <%= item.Correct === 'D' ? 'checked' : '' %>>
+                        <label class="form-check-label"><%=item.Alt_D%></label>
+                    </div>
+                    <hr>    
+                </div>
+            <% }); %> 
+        </form>
+    </div>
+
+
+</body>
+</html>
