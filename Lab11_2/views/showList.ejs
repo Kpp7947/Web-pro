@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        body {
+            font-family: "Nunito", serif;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            justify-content: center;
+        }
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: lightgray;
+            text-align: left;
+        }
+
+        td {
+            border-bottom: 1px solid lightgray;
+        }
+
+        th, td {
+            padding: 10px 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .butt {
+            background-color: #67C14B;
+            padding: 7px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .butt:hover {
+            opacity: 0.8;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Todo List</h1>
+            <div class="butt">
+                <a href="/create">Add Todo</a>
+            </div>
+            
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Deadline</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% data.forEach((item)=>{ %>
+                    <tr>
+                        <td><%=item.id%></td>
+                        <td><%=item.title%></td>
+                        <td><%=item.deadline%></td>
+                        <td>
+                            <% if(item.status == 'incompleted'){ %>
+                                <input type="checkbox">
+                            <% }else{ %>
+                                <input type="checkbox" checked>
+                            <%}%>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

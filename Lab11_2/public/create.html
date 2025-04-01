@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create todo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        body {
+            font-family: "Nunito", serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            /* background-color: rgb(234, 234, 234); */
+            box-shadow: 0 0 10px 10px rgb(234, 234, 234);
+            padding: 30px;
+            display: grid;
+            width: 50%;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, textarea {
+            width: 400px;
+            border: 1px solid lightgray;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 70px;
+            resize: none;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .butt {
+            background-color: #67C14B;
+            color: white;
+            padding: 7px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            border: #67C14B;
+        }
+
+        .butt:hover {
+            opacity: 0.8;
+        }
+
+        a {
+            /* background-color: #67C14B; */
+            text-decoration: none;
+            color: red;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 2px solid red;
+        }
+
+        a:hover {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Todo📝</h1>
+
+        <form action="/addTodo" method="POST" onsubmit="return check()">
+            <div class="form-group">
+                <label>Title: </label><br>
+                <input type="text" placeholder="Enter title" name="title" id="title">
+            </div>
+
+            <div class="form-group">
+                <label>Description: </label><br>
+                <textarea name="description" id="description" placeholder="Enter description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Deadline: </label><br>
+                <input type="date" name="deadline" id="deadline">
+            </div>
+
+            <input type="submit" value="Create Todo" class="butt">
+            <a href="/">Cancel</a>
+        </form>
+    </div>
+
+    <script>
+        function check() {
+            let title = document.getElementById('title').value;
+            let description = document.getElementById('description').value;
+            let deadline = document.getElementById('deadline').value;
+            if (!title || !description || !deadline) {
+                alert("กรุณากรอกให้ครบ");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
