@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+        body {
+            font-family: "Nunito", serif;
+            background-color: #f4f4f4;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            width: 100%;
+        }
+
+        form {
+            display: grid;
+            gap: 5px;
+            width: 500px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            border: 1px solid lightgray;
+            padding: 5px;
+        }
+
+        #butt {
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            font-weight: bold;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #butt:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Form</h1>
+        <form action="/process_signup" method="GET">
+            <label>Username :</label>
+            <input type="text" name="username">
+            
+            <label>Password :</label>
+            <input type="password" name="password">
+            
+            <label>Email :</label>
+            <input type="email" name="email">
+            
+            <label>First Name :</label>
+            <input type="text" name="firstname">
+            
+            <label>Last Name :</label>
+            <input type="text" name="lastname">
+            
+            <label>Age :</label>
+            <input type="number" min="0" max="100" name="age">
+            
+            <label>Address :</label>
+            <textarea name="address" style="height: 50px;"></textarea>
+            
+            <label>Phone :</label>
+            <input type="text" name="phone" placeholder="0xxxxxxxxx">
+            
+            <input type="submit" value="Submit" id="butt">
+        </form>
+    </div>
+    
+</body>
+</html>
