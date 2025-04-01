@@ -1,0 +1,60 @@
+<%- include("head") %>
+<style>
+    h1 {
+        text-align: center;
+        font-weight: bold;
+    }
+    .table {
+        margin: 20px;
+    }
+
+    a {
+        color: white;
+        background-color: rgb(60, 60, 60);
+        text-align: center;
+        padding: 10px 30px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    a:hover {
+        color: white;
+        background-color: rgb(26, 26, 26);
+        text-decoration: none;
+    }
+</style>
+<body>
+    <h1>User List</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <% data.forEach((item)=>{ %>
+                <tr>
+                    <td><%=item.id%></td>
+                    <td><%=item.first_name%></td>
+                    <td><%=item.last_name%></td>
+                    <td><%=item.username%></td>
+                    <td><%=item.email%></td>
+                    <td>
+                        <!-- <div class="detail"> -->
+                            <a href="/detail?id=<%=item.id%>">Detail</a>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+</body>
+</html>
