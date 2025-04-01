@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6-3</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 50px;
+        }
+        .content-head {
+            background-color: lightgray;
+            padding: 20px;
+        }
+        .content {
+            gap: 10px;
+        }
+
+        .col:nth-child(1) {
+            padding: 20px;
+            float: left;
+            width: 25%;
+        }
+        .col:nth-child(2) {
+            padding: 20px;
+            float: left;
+            width: 25%;
+        }
+        .col:nth-child(3) {
+            padding: 20px;
+            float: left;
+            width: 25%;
+        }
+        .col:nth-child(4) {
+            padding: 20px;
+            float: left;
+            width: 25%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .col:nth-child(1), .col:nth-child(2), .col:nth-child(3) {
+                width: 33.33%;
+            }
+            .col:nth-child(4) {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .col:nth-child(1), .col:nth-child(2), .col:nth-child(3), .col:nth-child(4) {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .col:nth-child(1), .col:nth-child(2), .col:nth-child(3), .col:nth-child(4) {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-head">
+            <h1>What is Web Technology?</h1>
+            <p>Web technology refers to the means by which computers communicate with each other using markup languages
+                and multimedia packages. It gives us a way to interact with hosted information, like websites. Web
+                technology involves the use of hypertext markup language (HTML) and cascading style sheets (CSS).</p>
+        </div>
+        <div class="content">
+            <div class="col">
+                <h2>HTML</h2>
+                <p>Hypertext Markup Language (HTML) is the standard markup language[a] for documents designed to be
+                    displayed in a web browser. It defines the content and structure of web content. It is often
+                    assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as
+                    JavaScript, a programming language.</p>
+            </div>
+            <div class="col">
+                <h2>CSS</h2>
+                <p>CSS is designed to enable the separation of content and presentation, including layout, colors, and
+                    fonts.[4] This separation can improve content accessibility, since the content can be written
+                    without concern for its presentation; provide more flexibility and control in the specification of
+                    presentation characteristics; enable </p>
+            </div>
+            <div class="col">
+                <h2>JavaScript</h2>
+                <p>JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript
+                    standard. It has dynamic typing, prototype-based object-orientation, and first-class functions.
+                    It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has
+                    application programming interfaces (APIs)</p>
+            </div>
+            <div class="col">
+                <h2>bootstrap</h2>
+                <p>Bootstrap is an HTML, CSS and JS library that focuses on simplifying the development of informative
+                    web pages (as opposed to web applications). The primary purpose of adding it to a web project is to
+                    apply Bootstrap's choices of color, size, font and layout to that project. As such, the primary
+                    factor is whether the developers in charge find those choices to their liking.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

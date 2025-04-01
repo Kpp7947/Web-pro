@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6-1</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: "Mitr", serif;
+            margin: 30px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        @media screen and (max-width: 400px) {
+            .content {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-container">
+        <div class="content-top">
+            <h2>Programming Language</h2>
+            <p>A programming language is a system of notation for writing computer programs. Programming languages are
+                described in terms of their syntax (form) and semantics (meaning), usually defined by a formal language. Languages
+                usually provide features such as a type system, variables, and mechanisms for error handling.</p>
+        </div>
+        <div class="content">
+            <div class="column1">
+                <h2>C</h2>
+                <p>C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in
+                    1972. It is a very popular language, despite being old. The main reason for its popularity is because it
+                    is a fundamental language in the field of computer science.
+                    C is strongly associated with UNIX, as it was developed to write the UNIX operating system.</p>
+            </div>
+
+            <div class="column2">
+                <h2>Python</h2>
+                <p>Python is developed under an OSI-approved open source license, making it freely usable and
+                    distributable,
+                    even for commercial use. Python's license is administered by the Python Software Foundation. Python
+                    can be easy to pick up whether you're a first time programmer or you're experienced with other languages.
+                    The following pages are a useful first step to get on your way writing programs with Python! The Python
+                    Package Index (PyPI) hosts thousands of third-party modules for Python. Both Python's standard library and
+                    thecommunity-contributed modules allow for endless possibilities.</p>
+            </div>
+
+            <div class="column3">
+                <h2>Java</h2>
+                <p>Java is a popular programming language, created in 1995.
+                    It is owned by Oracle, and more than 3 billion devices run Java.
+                    It is used for: Mobile applications (specially Android apps)
+                    Desktop applications Web applications
+                    Web servers and application servers
+                    Games Database connection
+                    And much, much more! Java works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc.)
+                    It is one of the most popular programming languages in the world It has a large demand in the current job market
+                    It is easy to learn and simple to use It is open-source and free
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

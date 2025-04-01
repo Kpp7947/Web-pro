@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    width: 100%;
+    font-family: "Roboto Condensed", serif;
+    color: white;
+    margin: 0;
+    background-color: white;
+    height: 200vh;
+    transition: background-color 1s ease;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 40px;
+    color: white;
+}
+
+.content-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bar {
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(69, 35, 9, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.checkout {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-weight: 800;
+    font-size: 28px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.checkout p {
+    margin: 0;
+}
+
+.checkout button {
+    font-weight: 800;
+    font-size: 12px;
+    padding: 10px 12px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(60, 42, 30, 1);
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 15px burlywood;
+    cursor: pointer;
+
+}
+
+.checkout button:hover {
+    background-color: white;
+    color: rgba(60, 42, 30, 1);
+}
+
+.pop-up {
+    display: none;
+    overflow-y: hidden;
+    justify-content: center;
+    position: fixed;
+    text-align: center;
+    border-radius: 30px;
+    top: 20%;
+    width: 50%;
+    padding: 30px;
+    color: rgba(60, 42, 30, 1);
+    background-color: white;
+    z-index: 10000;
+}
+
+
+.order thead {
+    background-color: #d3c5b4;
+    font-weight: bold;
+}
+
+.order tbody {
+    display: block;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.order tr {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.order td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(60, 42, 30, 0.3);
+}
+
+.but-pop {
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+}
+.but-pop button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: rgba(60, 42, 30, 1);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    color: white;   
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    
+}
+
+.noti {
+    position: relative;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    top: -40px;
+    right: 15px;
+    font-size: 15px;
+    align-content: center;
+}
+
+.main img {
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 30px;
+}
+
+.cont-head {
+    background-color: rgba(40, 29, 21, 1);
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.nav-bar .option button {
+    background-color: rgba(40, 29, 21, 1);
+    color: white;
+    border: 2px solid white;
+}
+
+.nav-bar .option button:hover {
+    background-color: white;
+    color: rgba(40, 29, 21, 1);
+    border: 2px solid rgba(40, 29, 21, 1);
+}
+
+.random button {
+    margin: 30px 0;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgba(60, 42, 30, 1);
+    color: white;
+    border: 2px solid white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.random button:hover {
+    transform:translateY(-3px) ;
+}
+
+.cont-promotion {
+    text-align: center;
+}
+
+.pop-promotion {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 7%;
+    gap: 10px; 
+    justify-items: center;
+}
+
+.pop-promotion .menu {
+    margin: 10px 0;
+    background-color: rgba(157, 88, 46, 1);
+    width: 300px;
+}
+
+.pop-promotion .menu .name {
+    color: white;
+}
+
+.pop-promotion .menu .price {
+    color: rgba(60, 42, 30, 1);
+}
+
+.noti-promotion {
+    position: absolute;
+    background-color: red;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    align-content: center;
+    font-weight: 800;
+}
+
+.pop-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pop {
+    margin: 0 15px;
+    background-color: rgba(157, 88, 46, 1);
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    width: 300px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pop:hover {
+    box-shadow: 0 0 15px burlywood;
+}
+
+.nav-bar .option {
+    margin: 0 7%;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 7%;
+    margin-top: 5%;
+}
+
+.option button {
+    margin: 30px 10px;
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    color: rgba(60, 42, 30, 1);   
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    
+}
+
+button:hover {
+    background-color: rgba(60, 42, 30, 1);
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 15px burlywood;
+    
+}
+
+.coffee, .tea, .milk, .smoothie, .dessert{
+    margin: 1% 7%;
+    justify-content: center;
+}
+
+.cof-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin: 1% 10%;
+}
+
+.menu {
+    padding: 7%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    text-align: center;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.menu:hover {
+    box-shadow: 0 0 15px burlywood;
+    transform: translateY(-7px);
+}
+
+.cof-name {
+    margin: 10px;
+}
+
+.cof-name .name {
+    color: rgba(60, 42, 30, 1);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+
+}
+
+.cof-name .price {
+    color: rgba(138, 102, 77, 1);
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}
+
+.control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.control input {
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid rgba(60, 42, 30, 0.5);
+    border-radius: 5px;
+}
+
+.control button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: rgba(60, 42, 30, 1);
+    border-radius: 30px;
+    color: white;   
+    cursor: pointer;
+}
+
+.control img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.control img:hover {
+    transform: scale(1.2);
+}
+
+.foot-content {
+    display: flex;
+    background-color: rgba(40, 29, 21, 1);
+    padding: 10px;
+    margin-top: 0;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+#topic {
+    background-color: rgba(40, 29, 21, 1);
+    width: 100%;
+    /* margin: 10px; */
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 0;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: burlywood;
+}
+
+.to-home {
+    text-align: center;
+}
+
+#but-home {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(60, 42, 30, 1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+#but-home:hover {
+    text-decoration: underline;
+    box-shadow: none;
+    color: burlywood;
+}
+
+@media screen and (max-width: 1400px) {
+    .pop-promotion .menu {
+        width: 280px;
+    }
+
+    .pop {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cont-head {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+    }
+
+    .pop {
+        width: 300px;
+    }
+    .pop-up {
+        width: 65%;
+    }
+
+    .pop-promotion{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+    body {
+        overflow-x: hidden;
+    }
+    #pop-container   {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
+    .cof-content {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        align-items: center;
+    }
+    .option {
+        margin: 20px 10px;
+    }
+    .option button {
+        margin: 0 5px;
+        padding: 10px;
+        width: 150px;
+    }
+
+    .menu {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .pop-promotion {
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+    .pop-promotion .menu {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+    .pop-up {
+        width: 75%;
+    }
+    .pop-promotion {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+    }
+
+    .pop {
+        width: 160px;
+        font-size: 14px;
+    }
+
+    .cof-content {
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+    }
+
+    .menu {
+        width: 300px;
+    }
+
+    .option {
+        display: grid;
+        align-items: center;
+        margin: 10px;
+    }
+    .option button {
+        margin: 7px;
+        width: 300px;   
+        padding: 10px;
+    }
+}
+
+
+

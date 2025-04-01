@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4-1</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="cal">
+            <label for="Number1">Number 1: <input id="num1" type="number"></label><br>
+            <label for="Number2">Number 2: <input id="num2" type="number"></label>
+        </div>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <p id="list"></p>
+
+    <script>
+        function calculate() {
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+            let summ = num1 + num2;
+
+            //change res
+            let resElement = document.getElementById("result");
+            let p = document.createElement("p");
+            let txtRes = document.createTextNode("Result: " + summ);
+            p.appendChild(txtRes);
+
+            if (resElement.firstChild) {
+                resElement.replaceChild(p, resElement.firstChild);
+            } else {
+                resElement.appendChild(p);
+            }
+
+            //cal his
+            let txt = document.createTextNode(num1 + " + " + num2 + " = " + summ);
+            let n1 = document.createElement("div");
+            n1.appendChild(txt);
+
+            document.getElementById("list").appendChild(n1);
+        }
+    </script>
+</body>
+
+</html>

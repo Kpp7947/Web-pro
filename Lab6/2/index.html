@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6-2</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+        body {
+            font-family: "Mitr", serif;
+            margin: 50px;
+        }
+        img {
+            max-width: 100%;
+        }
+        .content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .cat {
+            border: 1px solid lightgrey;
+            justify-items: center;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .content {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Cats Image Gallery</h1>
+        <div class="content">
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Oscar</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1671624756576-73c14423f241?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Leo</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1671624760264-35df7b0e60ea?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Lily</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1675504661658-33940d979a6a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Milo</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1648679718456-5845af11edf9?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Bella</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1672328105289-f70dc6c657b1?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Max</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1671624754274-a859a5687684?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Luna</p>
+            </div>
+            <div class="cat">
+                <img src="https://images.unsplash.com/photo-1671624760394-753d2c412a12?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="cat1">
+                <p>Pockey</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

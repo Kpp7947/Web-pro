@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5-3</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+        body {
+            font-family: "Mitr", serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        function question(data) {
+            const container = document.getElementById('container');
+
+            for (let [index, q] of data.entries()) {
+                const divQ = document.createElement('div');
+                divQ.innerHTML = `<p>${index + 1}. ${q.question}</p>`;
+
+                const divA = document.createElement('div');
+                for (let [key, value] of Object.entries(q.answers)) {
+                    if (key != 'correct') {
+                        const label = document.createElement('label');
+                        const input = document.createElement('input');
+                        input.type = 'radio';
+                        input.name = `${index+1}`;
+                        input.value = key;
+                        const text = document.createTextNode(`${key.toUpperCase()}. ${value}`);
+                        if (key == q.answers.correct) {
+                            input.checked = true;
+                        }
+                        const br = document.createElement('br');
+                        label.appendChild(input);
+                        label.appendChild(text)
+                        label.appendChild(br);
+                        divA.appendChild(label);
+                    }
+                    divQ.appendChild(divA);
+                    container.appendChild(divQ);
+                }
+            }
+
+        }
+
+        fetch('questionAnswerData.json')
+            .then(response => response.json())
+            .then(data => question(data))
+            .catch(error => console.log('error', error))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <!-- <div class="divQ">
+            <p></p>
+        </div>
+        <div class="divA">
+            <input type="radio">
+            <input type="radio">
+            <input type="radio">
+        </div> -->
+    </div>
+
+    <script>
+        function info(data) {
+            const container = document.getElementById('container');
+            for (let [index, q] of data.entries()) {
+                const divQ = document.createElement('div');
+                divQ.innerHTML = `
+                    <p>${index+1}. ${q.question}</p>
+                `;
+
+                const divA = document.createElement('div');
+                for (let [key, value] of Object.entries(q.answers)) {
+                    if (key != 'correct') {
+                        const label = document.createElement('lable');
+                        const input = document.createElement('input');
+                        const text = `${key.toUpperCase()}. ${value}`;
+                        const txt = document.createTextNode(text);
+                        input.type = 'radio';
+                        if (key == q.answers.correct) {
+                            input.checked = true;
+                        }
+                        const br = document.createElement('br');
+                        label.appendChild(input);
+                        label.appendChild(txt);
+                        label.appendChild(br);
+                        divA.appendChild(label);
+                    }
+                }
+                container.appendChild(divQ);
+                container.appendChild(divA);
+            }
+        }
+
+        fetch('questionAnswerData.json')
+            .then(response => response.json())
+            .then(data => info(data))
+            .catch(error => console.log('error', error));
+    </script>
+</body>
+
+</html>

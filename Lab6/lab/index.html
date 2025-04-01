@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        /* * {
+          box-sizing:border-box;
+        }
+        .left {
+          background-color:#2196F3;
+          padding:20px;
+          float:left;
+          width:20%;    
+        }
+        .main {
+          background-color:#f1f1f1;
+          padding:20px;
+          float:left;
+          width:60%; 
+        }
+        .right {
+          background-color:#4CAF50;
+          padding:20px;
+          float:left;
+          width:20%; 
+        } */
+        /* @media screen and (max-width:500px) {
+          .left, .main, .right {
+            width:100%; 
+          }
+        } */
+
+        /* @media screen and (min-width: 500px) and (max-width: 800px) {
+            .left, .main {
+                width: 50%;
+            }
+            .right {
+                width: 100%;
+            }
+        } */
+        body {
+            font-size: 30px;
+        }
+
+        div {
+            height: 100px;
+        }
+
+        .c1 {
+            background-color: #1abc9c;
+        }
+
+        .c2 {
+            background-color: #2ecc71;
+        }
+
+        .c3 {
+            background-color: #3498db;
+        }
+
+        .c4 {
+            background-color: #e08692;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h2>Responsive Image</h2>
+    <img src="http://10.0.15.21/lab/lab6/img/blue-and-sky.jpg" style="width:100%;">
+
+    <p>"max-width:100%" prevents the image from getting bigger than its original size.</p>
+    <img src="http://10.0.15.21/lab/lab6/img/blue-and-sky.jpg" style="max-width:100%;height:auto;"> -->
+
+    <!-- <h2>Media Queries</h2>
+    <p>Resize the browser window.</p>
+    <p>Make sure you reach the breakpoint at 500px when resizing this frame.</p>
+    <div class="left">
+        <p>Left Menu</p>
+    </div>
+    <div class="main">
+        <p>Main Content</p>
+    </div>
+    <div class="right">
+        <p>Right Content</p>
+    </div> -->
+
+    <div class="container">
+        <h1>Welcome</h1>
+    </div>
+
+    <!---- Step 1: 2 columns ----->
+    <div class="container">
+        <div class="row text-center">
+            <p>2 columns: 50% width on all screens, col-md-6 for screens less than
+                <strong>768px</strong> wide
+            </p>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 c2">1 of 2</div>
+                    <div class="col-md-6 c4">2 of 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---- Step 2: 4 columns ----->
+    <!-- <div class="container">
+        <div class="row text-center">
+            <p>2 columns: 50% width on all screens, col-md-6 for screens less than
+                <strong>768px</strong> wide
+            </p>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 c2">1 of 4</div>
+                    <div class="col-sm-3 c4">2 of 4</div>
+                    <div class="col-sm-3 c1">3 of 4</div>
+                    <div class="col-sm-3 c3">4 of 4</div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</body>
+
+</html>

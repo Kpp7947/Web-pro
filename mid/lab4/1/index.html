@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cal">
+            <div class="num1">
+                <label for="">Number1: <input id="num1" type="text"></label>
+            </div>
+            <div class="num2">
+                <label for="">Number2: <input id="num2" type="text"></label>
+            </div>
+        </div>
+        <button type="button" onclick="calculate()">Calculate</button>
+        <div id="Result">
+            <p id="res">Result: 0</p>
+            <div id="his"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculate () {
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.getElementById('num2').value;
+            const res = document.getElementById('res');
+
+            const his = document.getElementById('his');
+            res.innerHTML = `Result: ${parseInt(num1)+parseInt(num2)}`;
+            const div = document.createElement('div');
+            
+            const txt = `${num1} + ${num2} = ${parseInt(num1)+parseInt(num2)}`;
+            const txtEle =  document.createTextNode(txt)
+            div.appendChild(txtEle);
+            his.appendChild(div);
+
+        }
+    </script>
+</body>
+</html>

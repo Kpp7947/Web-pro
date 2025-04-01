@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4-3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+        body {
+            font-family: "Mitr", serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;   
+        }
+
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: white;
+            width: 100%;
+        }
+        
+        form {
+            margin: 40px;
+        }
+
+        .form-row .col-sm-3, .form-row .col-sm-2 {
+            margin-bottom: 5px;
+        }
+
+        thead {
+            background-color: rgb(79, 202, 192);
+            color: white;
+        }
+
+        button {
+            padding: 7px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            background-color: #04AA6D;
+            color: white;
+            box-shadow: 3px 3px 5px rgb(191, 190, 190);
+        }
+
+        button:hover {
+            background-color: #048958;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <h1>ตารางรายรับ-รายจ่าย</h1>
+        <h3>ยอดคงเหลือ</h3>
+        <h2 id="total">0</h2>
+        <form role="form">
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <input id="list" class="form-control" type="text" placeholder="รายการ">
+                </div>
+                <div class="col-sm-3">
+                    <input id="amount" class="form-control" type="text" placeholder="จำนวน">
+                </div>
+                <div class="col-sm-2">
+                    <select name="type" id="type" class="form-control">
+                        <option value="00">---ประเภท---</option>
+                        <option value="รายจ่าย">รายจ่าย</option>
+                        <option value="รายรับ">รายรับ</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" id="date" class="form-control">
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" onclick="addList()">เพิ่มรายการ</button>
+                </div>
+            </div>
+
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>วันที่</th>
+                    <th>รายการ</th>
+                    <th>รายรับ</th>
+                    <th>รายจ่าย</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- <tr>
+                    <td></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function addList() {
+            let total = parseFloat(document.getElementById("total").textContent);
+            let list = document.getElementById("list").value;
+            let amount = parseFloat(document.getElementById("amount").value);
+            let type = document.getElementById("type").value;
+            let date = document.getElementById("date").value;
+
+            //check
+            if (list == "" || amount == "" || type == "00" || date == "") {
+                alert("กรุณากรอกข้อมูลให้ครบ");
+                return false;
+            }
+
+            //add row
+            let td1 = document.createElement("td");
+            let txt1 = document.createTextNode(date);
+            td1.appendChild(txt1);
+
+            let td2 = document.createElement("td");
+            let txt2 = document.createTextNode(list);
+            td2.appendChild(txt2);
+
+            //check type + amount
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+            let txt3 = document.createTextNode(amount);
+            let txt4 = document.createTextNode("0");
+            let newtotal = 0;
+            //replace total
+            let newPar = document.createElement("h2");
+            newPar.id = "total";
+
+            if (type == "รายรับ") {
+                td3.appendChild(txt3);
+                td4.appendChild(txt4);
+                newtotal += total + amount;
+                let txt = document.createTextNode(newtotal);
+                newPar.appendChild(txt);
+                console.log(newtotal);
+            }else {
+                td3.appendChild(txt4);
+                td4.appendChild(txt3);
+                newtotal += total - amount;
+                let txt = document.createTextNode(newtotal);
+                newPar.appendChild(txt);
+                console.log(newtotal);
+            }
+
+            let parent = document.getElementById("container");
+            let oldPar = document.getElementById("total");
+            parent.replaceChild(newPar, oldPar);
+            
+            let tr = document.createElement("tr");
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+
+            document.getElementById("tbody").appendChild(tr);
+        }
+    </script>
+</body>
+</html>

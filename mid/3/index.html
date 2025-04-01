@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .sub {
+            text-align: center;
+            padding: 10px;
+            width:5% ;
+            margin: 7px;
+            transition: 1s;
+        }
+        .sub:nth-child(1) {
+            background-color: blueviolet;
+        }
+        .sub:nth-child(2) {
+            background-color: blue;
+        }
+        .sub:nth-child(3) {
+            background-color: green;
+        }
+        .sub:nth-child(4) {
+            background-color: orange;
+        }
+        .sub:nth-child(5) {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sub" id="math">math</div>
+        <div class="sub" id="thai">Thai</div>
+        <div class="sub" id="eng">English</div>
+        <div class="sub" id="sci">Science</div>
+        <div class="sub" id="soc">Social</div>
+        <button onclick="chart()">View Chart</button>
+    </div>
+
+    <script>
+        let check = true;
+        function chart() {
+            if (check) {
+                document.getElementById('math').style.width = '40%';
+                document.getElementById('thai').style.width = '50%';
+                document.getElementById('eng').style.width = '30%';
+                document.getElementById('sci').style.width = '70%';
+                document.getElementById('soc').style.width = '60%';
+                check = false;
+            }else {
+                document.getElementById('math').style.width = '5%';
+                document.getElementById('thai').style.width = '5%';
+                document.getElementById('eng').style.width = '5%';
+                document.getElementById('sci').style.width = '5%';
+                document.getElementById('soc').style.width = '5%';
+                check = true;
+            }
+        }
+    </script>
+</body>
+</html>

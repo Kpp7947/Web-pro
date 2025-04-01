@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-Size: 24px;
+        }
+
+        /* img {
+            border-radius: 25px;
+            border: 10px solid red;
+        } */
+
+        th, td {
+            border-bottom: 1px solid lightseagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ex1 -->
+    <!-- <h1>Months in a Year</h1>
+    <p>
+        According to the Gregorian calendar of modern time, there are 12 months in a year. Each month has either 30 or
+        31 days, except for one month of February which has 28 or 29 days, depending on the year being a leap year.
+        Observe the name given below which shows the list of all the 12 months in a year. <a href="#"
+            onclick="listOfMonths();">click here</a>
+    </p>
+
+    <p id="pmonths"></p>
+
+    <h1>How to Remember the Days of a Month?</h1>
+    <p>
+        The number of days in a month need to be memorized. We should keep in mind that we have months with 31 days,
+        months with 30 days, and a month which has 28 or 29 days. The following method helps us remember these months
+        along with the number of days that they have.
+    </p> -->
+
+    <!-- ex2 -->
+    <!-- <h1>Top Programming Languages 2024</h1>
+    <p>According to a 2024 Stack Overflow Developer Survey, the most popular programming languages in 2024 are:</p>
+    <div id="div1">
+        <p id="p1">JavaScript</p>
+        <p id="p2">HTML/CSS</p>
+        <p id="p3">Python</p>
+        <p id="p4">SQL</p>
+        <p id="p5">TypeScript</p>
+        <p id="p6">Bash/Shell</p>
+        add a new element here
+    </div>
+
+    <div id="div2">
+        <h1 id="h1md">Moo Deng, the irresistible star</h1>
+        <p>Moo Deng is a pygmy hippopotamus living in Khao Kheow Open Zoo in Si Racha, Chonburi, Thailand. She became a
+            popular internet meme at two months of age after images of her went viral online in September 2024. </p>
+    </div>
+
+
+    <button type="button" onclick="addNode();">Add Node</button>
+    <button type="button" onclick="deleteNode();">Delete Node</button>
+    <button type="button" onclick="addNewImage();">Add Image</button>
+    <button type="button" onclick="changeStyles();">Change Styles</button> -->
+
+    <!-- ex3 -->
+    <table id="table1">
+        <thead>
+            <tr>
+                <th class="col1">ID</th>
+                <th>Activities</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <!-- <tr>
+                <td>1</td>
+                <td>aaaa</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        //ex1
+        // function listOfMonths() {
+        //     const months = ["January", "February",
+        //     "March", "April",
+        //     "May", "June",
+        //     "July", "August",
+        //     "September", "October",
+        //     "November", "December"];
+        //     // list of months
+        //     /*
+        //         <ol>
+        //             <li></li>
+        //         </ol>
+        //     */
+        //     let ol = document.createElement("ol");
+        //     for (let item of months) {
+        //         let li = document.createElement("li");
+        //         let txt = document.createTextNode(item);
+        //         li.appendChild(txt); //txt = child node of element node
+        //         ol.appendChild(li);
+        //     }
+        //     document.getElementById("pmonths").appendChild(ol);
+        // }
+
+        //ex2
+        // function addNode() {
+        //     // 1. <p>Java</p>
+        //     let pt4 = document.createElement("p");
+        //     // 2. create text node
+        //     let txt = document.createTextNode("Java");
+        //     // 3. append text node to a parent node
+        //     pt4.appendChild(txt);
+        //     // 4. select a parent node
+        //     let parent1 = document.getElementById("div1");
+        //     // 5. append element node to a parent node
+        //     // parent1.appendChild(pt4); //เพิ่มแบบต่อท้ายตัวสุดท้าย
+        //     /*  uncomment in step 2 **/
+        //     let childP1 = document.getElementById("p1"); //เพิ่มแบบระบุตำแหน่ง
+        //     parent1.insertBefore(pt4, childP1); //เพิ่มก่อนหน้าตำแหน่งนั้น ๆ
+        // }
+
+        // function deleteNode() {
+        //     let parent2 = document.getElementById("div1");
+        //     let delPtag = document.getElementById("p4");
+        //     parent2.removeChild(delPtag);
+        // }
+
+        // function addNewImage() {
+        //     // <img src="http://10.0.15.21/lab/lab3/images/md2.png">
+        //     let imgtag = document.createElement("img");
+
+        //     imgtag.setAttribute('src', 'http://10.0.15.21/lab/lab3/images/md2.png');
+
+        //     // add IMG to parent node
+        //     let parent2 = document.getElementById("div2").appendChild(imgtag);
+        // }
+
+        // function changeStyles() {
+        //     let p = document.getElementById("h1md");
+        //     p.style.color = "blue";
+        //     p.style.fontFamily = "Comic Sans MS";
+        // }
+
+        //ex3
+        let acts = ["Wakes up for a bath and waits for Mom to eat breakfast.",
+            "Walks around, showing off before heading to the water for a nap.",
+            "Takes a nap in the water.",
+            "Might get up for a stroll or a nap on land.",
+            "Naps on land.",
+            "Naps in the water again.",
+            "Mom gets out of the water for dinner while Moo Deng naps.",
+            "Mom eats grass while Moo Deng waits, occasionally running a bit, followed by a long nap until evening.",
+            "Plays with Mom in the water.",
+            "Drinks milk and playfully disturbs Mom.",
+            "Sleeps soundly for hours."];
+
+        for (let i in acts) {
+            let tr = document.createElement("tr");
+
+            let td1 = document.createElement("td");
+            let txt1 = document.createTextNode(parseFloat(i)+1);
+            td1.appendChild(txt1);
+
+            let td2 = document.createElement("td");
+            let txt2 = document.createTextNode(acts[i]);
+            td2.appendChild(txt2);
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+
+            document.getElementById("tbody").appendChild(tr);
+        }
+        
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @font-face {
+            font-family: myWebFont;
+            /* font-style: NORMAL_OR_ITALIC; */
+            /* font-weight: NUMERIC_WEIGHT_VALUE; */
+            src: url(/ChakraPetch-Regular.ttf);
+        }
+
+        body {
+            font-family: myWebFont;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="name">
+                <label id="name">ชื่อ: </label>
+                <input type="text">
+            </div>
+            <div class="surname">
+                <label id="surname">นามสกุล: </label>
+                <input type="text">
+            </div>
+            <div class="country">
+                <label id="country">ประเทศ:</label>
+                <select value="country" id="countSelect">
+                    <option value="select country">เลือกประเทศ</option>
+                    <option value="Thai">ไทย</option>
+                    <option value="Vietnam">เวียดนาม</option>
+                    <option value="Laos">ลาว</option>
+                </select>
+            </div>
+            <button id="button" type="button" onclick="change()">เปลี่ยนเป็นภาษาอังกฤษ</button>
+
+        </form>
+    </div>
+
+    <script>
+        let thai = [];
+        let eng = ['First Name: ', "Last Name: ", "Country: "];
+        let thSelect = [];
+        let engSelect = [];
+        let thBut = "";
+        let engBut = "Change to thai";
+
+        const name = document.getElementById('name').textContent;
+        const surname = document.getElementById('surname').textContent;
+        const country = document.getElementById('country').textContent;
+        if (thai.length == 0) {
+            thai.push(name);
+            thai.push(surname);
+            thai.push(country);
+        }
+
+        const select = document.getElementById('countSelect');
+        const option = select.options;
+        if (thSelect.length == 0) {
+            for (let i = 0; i < option.length; i++) {
+                engSelect.push(option[i].value);
+                thSelect.push(option[i].textContent);
+            }
+        }
+
+        const butt = document.querySelector('#button');
+        if (thBut == "") {
+            thBut = butt.textContent;
+        }
+
+
+        let check = 'thai';
+        function change() {
+            const label = document.querySelectorAll('label');
+            const selectAll = document.querySelector('select');
+            const butt = document.querySelector('#button');
+            if (check == 'thai') {
+                changeLabel(label[0], eng[0]);
+                changeLabel(label[1], eng[1]);
+                changeLabel(label[2], eng[2]);
+                changeOption(selectAll, engSelect);
+
+                butt.textContent = engBut;
+
+                check = 'eng';
+            } else {
+                changeLabel(label[0], thai[0]);
+                changeLabel(label[1], thai[1]);
+                changeLabel(label[2], thai[2]);
+                changeOption(selectAll, thSelect);
+                butt.textContent = thBut;
+                check = 'thai'
+            }
+        }
+
+        function changeLabel(label, txt) {
+            label.textContent = txt;
+        }
+
+        function changeOption(select, txt) {
+            for (let i = 0; i < select.length; i++) {
+                select[i].textContent = txt[i];
+            }
+        }
+    </script>
+</body>
+
+</html>

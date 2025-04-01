@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+        body {
+            font-family: "Mitr", serif;
+            background-color: #f8f9fa;
+            justify-items: center;
+            align-content: center;
+            min-height: 50vh;
+            text-align: center;
+            font-size: 16px;
+            /* font-weight: 800; */
+        }
+
+        .header p {
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 10px 10px 20px rgb(207, 212, 216);
+            /* width: 100%; */
+            /* border: 1px solid black; */
+            width: 70%;
+        }
+        table {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-collapse: collapse;
+            width: 100%;
+            
+        }
+        th {
+            color: white;
+            
+            background-color: rgb(74, 200, 170);
+        }
+
+        th, td {
+            border: 2px solid rgb(207, 212, 216);
+            
+            padding: 10px;
+            
+
+        }
+
+        input, select, button {
+            width: 17%;
+            padding: 1%;
+            margin: 2% 0.1%;
+            /* margin-bottom: 3%; */
+            border: 1px solid rgb(207, 212, 216);
+            border-radius: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: rgb(74, 200, 170);
+            color: white;
+            box-shadow: 5px 5px 10px rgb(203, 202, 202);
+        }
+
+        button:hover {
+            background-color: rgb(207, 212, 216);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>ตารางรายรับ-รายจ่าย</p>
+            <p>ยอดคงเหลือ</p>
+            <p id="total">0</p>
+        </div>
+
+        <div class="form">
+            <form>
+                <input id="list" type="text" placeholder="รายการ">
+                <input id="count" type="text" placeholder="จำนวน">
+                <select name="type" id="type">
+                    <option value="00">รายจ่าย</option>
+                    <option value="01">รายรับ</option>
+                </select>
+                <input type="date" id="date">
+                <button type="button" onclick="add()">เพิ่มรายการ</button>
+            </form>
+        </div>
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>วันที่</th>
+                        <th>รายการ</th>
+                        <th>รายรับ</th>
+                        <th>รายจ่าย</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function add() {
+            const list = document.getElementById('list');
+            const count = parseInt(document.getElementById('count').value);
+            const date = document.getElementById('date');
+            const type = document.querySelector('select');
+            const total = document.getElementById('total');
+            if (list.value == "" | count.value == "" | date.value == "") {
+                alert("กรุณากรอกให้ครบ!!!!!!!!")
+                return false;
+            }
+            console.log(type.value)
+            let td3 = 0;
+            let td4 = 0;
+            if (type.value == "00") {
+                td3 = 0;
+                td4 = count;
+                if (total.textContent == "0") {
+                    total.innerHTML = "0";
+                }else {
+                    total.innerHTML = `${parseInt(total.textContent)-count}`;
+                }
+            }else {
+                td3 = count;
+                td4 = 0;
+                total.innerHTML = `${parseInt(total.textContent)+count}`;
+            }
+            const tbody = document.getElementById('tbody');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${date.value}</td>
+                <td>${list.value}</td>
+                <td>${td3}</td>
+                <td>${td4}</td>
+            `;
+
+            tbody.appendChild(tr);
+        }
+    </script>
+</body>
+</html>

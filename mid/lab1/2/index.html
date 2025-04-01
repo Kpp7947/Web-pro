@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+            font-family: "Raleway", sans-serif;
+            font-size: 20px;
+        }
+        table {
+            margin: 20px;
+        }
+
+        th {
+            text-align: right;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        td.bar-chart {
+            width: 50%;            
+        }
+        .bar {
+            margin-left: 40px;
+            padding: 7px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Student Scores</h1>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Student</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Nancy Freehafer</td>
+                    <td class="bar-chart">
+                        <div class="bar" style="background-color: red; width: 98%;">98</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Andrew Cencini</td>
+                    <td class="bar-chart">
+                        <div class="bar" style="background-color: red; width: 85%;">85</div>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Jan Kotas</td>
+                    <td class="bar-chart">
+                        <div class="bar" style="background-color: red; width: 65%;">65</div>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Mariya Sergienko</td>
+                    <td class="bar-chart">
+                        <div class="bar" style="background-color: red; width: 72%;">72</div>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Steven Thorpe</td>
+                    <td class="bar-chart">
+                        <div class="bar" style="background-color: red; width: 69%;">69</div>
+                    </td>                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

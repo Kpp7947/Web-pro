@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KATÉ LAND</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-head" id="home">
+            <div id="bar">
+                <h1 style="font-size: 48px; margin-bottom: 0;">KATÉ LAND</h1>
+                <h3 style="font-size: 20px; margin-top: 0; color: rgba(138, 102, 77, 1);">HELLO, WELCOME TO KATÉ LAND!
+                </h3>
+            </div>
+            <div class="checkout">
+                <p id="total">TOTAL: 0 BAHT</p>
+                <button type="button" onclick="checkOut()">CHECK OUT</button>
+                <div class="noti" id="noti">0</div>
+            </div>
+            <div class="main">
+                <img src="image/Picture7.png" alt="">
+            </div>
+            <!--popup-->
+            <div class="pop-up" id="pop-up">
+                <div class="pop-content">
+                    <h2 style="color: rgba(60, 42, 30, 1);">YOUR ORDER</h2>
+                    <h3 id="total-pop">TOTAL: 0 BAHT</h3>
+                    <table class="order" id="order">
+                        <thead>
+                            <tr>
+                                <th>MENU</th>
+                                <th>PRICE</th>
+                                <th>AMOUNT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <!-- <tr><td></td></tr> -->
+                        </tbody>
+                    </table>
+                    <div class="but-pop">
+                        <button onclick="confirm()">CONFIRM</button>
+                        <button onclick="closePopup()">CANCEL</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="content">
+            <div class="nav-bar">
+                <div class="option">
+                    <button type="button" onclick="toMenu('random')">RANDOM & POPULAR</button>
+                    <button type="button" onclick="toMenu('promotion')">PROMOTION</button>
+                    <button type="button" onclick="toMenu('menu')">MENU</button>
+                </div>
+            </div>
+            <div class="cont-head">
+                <div class="random" id="random">
+                    <h2>- RANDOM MENU -</h2>
+                    <div class="pop-container" id="pop-random">
+                        <div class="pop">
+                            <img src="image/1.png" alt="">
+                            <p>CAPPUCCINO</p>
+                        </div>
+                        <div class="pop">
+                            <img src="image/4.png" alt="">
+                            <p>ICED CHOCOLATE</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="randomMenu()">RANDOM MENU!</button>
+                </div>
+                <div class="popular">
+                    <h2>- POPULAR MENU -</h2>
+                    <div class="pop-container">
+                        <div class="pop">
+                            <img src="image/iced cocoa.png" alt="">
+                            <p>COCOA</p>
+                        </div>
+                        <div class="pop">
+                            <img src="image/banoffee.jpg" alt="">
+                            <p>BANOFFEE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cont-promotion" id="promotion">
+                <h2>- PROMOTION MENU -</h2>
+                <div class="pop-promotion">
+                    <div class="menu">
+                        <div class="noti-promotion">-5%</div>
+                        <img src="image/latte.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">LATTE</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button> <!--คล้ายๆ กับ button.addActionListener(this)-->
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="noti-promotion">-5%</div>
+                        <img src="image/avocado.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">AVOCADO SMOOTHIE</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="noti-promotion">-5%</div>
+                        <img src="image/lychee.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">LYCHEE</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="noti-promotion">-5%</div>
+                        <img src="image/strawberry tea.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">STRAWBERRY TEA</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="noti-promotion">-5%</div>
+                        <img src="https://i.pinimg.com/736x/3a/71/f0/3a71f002fe43ddbf119d5e89f74ab7a6.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">MACARON</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <div class="noti-promotion">-5%</div>
+                        <img src="image/brownie.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOCOLATE BROWNIE</p>
+                            <p class="price">PRICE: 120 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="option" id="menu">
+                <button type="button" onclick="toMenu('coffee')">COFFEE</button>
+                <button type="button" onclick="toMenu('tea')">TEA</button>
+                <button type="button" onclick="toMenu('milk')">MILK</button>
+                <button type="button" onclick="toMenu('smoothie')">SMOOTHIE / JUICE</button>
+                <button type="button" onclick="toMenu('dessert')">DESSERT</button>
+            </div>
+
+            <div class="coffee" id="coffee">
+                <h2 id="topic">COFFEE</h2>
+                <hr>
+                <div class="cof-content">
+                    <div class="menu">
+                        <img src="image/latte.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">LATTE</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/cappuccino.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">CAPPUCCINO</p>
+                            <p class="price">PRICE: 80 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/americano.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">AMERICANO</p>
+                            <p class="price">PRICE: 70 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/espresso.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">ESPRESSO</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/macchiato.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">MACCHIATO</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/mocha.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">MOCHA</p>
+                            <p class="price">PRICE: 85 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tea" id="tea">
+                <h2 id="topic">TEA</h2>
+                <hr>
+                <div class="cof-content">
+                    <div class="menu">
+                        <img src="image/iced lemon tea.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">LEMON TEA</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/iced green tea.webp" alt="">
+                        <div class="cof-name">
+                            <p class="name">LEMON GREEN TEA</p>
+                            <p class="price">PRICE: 70 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/thai tea.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">THAI TEA</p>
+                            <p class="price">PRICE: 80 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/peach iced tea.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">PEACH TEA</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/black tea.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">BLACK TEA</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/strawberry tea.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">STRAWBERRY TEA</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/mat coco.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">MATCHA COCONUT</p>
+                            <p class="price">PRICE: 95 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="milk" id="milk">
+                <h2 id="topic">MILK</h2>
+                <hr>
+                <div class="cof-content">
+                    <div class="menu">
+                        <img src="image/3.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOCOLATE</p>
+                            <p class="price">PRICE: 95 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/iced cocoa.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">COCOA</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/matcha latte.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">MATCH LATTE</p>
+                            <p class="price">PRICE: 85 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/strawberry milkshake.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">STRAWBERRY MILKSHAKE</p>
+                            <p class="price">PRICE: 120 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/0.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">OREO MILKSHAKE</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/2.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">MINT CHOCOLATE</p>
+                            <p class="price">PRICE: 95 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/vanilla.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">VANILLA ALMOND</p>
+                            <p class="price">PRICE: 100 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/banana.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOCOLATE BANANA</p>
+                            <p class="price">PRICE: 120 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="smoothie" id="smoothie">
+                <h2 id="topic">SMOOTHIE / JUICE</h2>
+                <hr>
+                <div class="cof-content">
+                    <div class="menu">
+                        <img src="image/pine.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">PINEAPPLE SMOOTHIE</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/blue.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">BLUEBERRY SMOOTHIE</p>
+                            <p class="price">PRICE: 85 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/mango.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">MANGO SMOOTHIE</p>
+                            <p class="price">PRICE: 80 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/lychee.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">LYCHEE</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/orange.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">ORANGE JUICE</p>
+                            <p class="price">PRICE: 75 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/avocado.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">AVOCADO SMOOTHIE</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/29/3c/4e/293c4edb2a2a5ece1ac8b33e9e6f3bb2.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">WATER MELON</p>
+                            <p class="price">PRICE: 70 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/21/a3/dc/21a3dcf8f0a45fafb71e66cc8eced04d.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">COCONUT</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="dessert" id="dessert">
+                <h2 id="topic">DESSERT</h2>
+                <hr>
+                <div class="cof-content">
+                    <div class="menu">
+                        <img src="image/brownie.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOCOLATE BROWNIE</p>
+                            <p class="price">PRICE: 120 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/3a/71/f0/3a71f002fe43ddbf119d5e89f74ab7a6.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">MACARON</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/5.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">COOKIE</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/6.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOCOLATE CROISSANT</p>
+                            <p class="price">PRICE: 70 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/choc lava.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOCOLATE LAVA CAKE</p>
+                            <p class="price">PRICE: 135 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/banoffee.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">BANOFFEE</p>
+                            <p class="price">PRICE: 125 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/4.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">CREME BRULEE</p>
+                            <p class="price">PRICE: 130 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <img src="image/7.png" alt="">
+                        <div class="cof-name">
+                            <p class="name">EGG TART</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/9a/a4/dc/9aa4dcd3ee0d1ce05fd1989b38929702.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">TIRAMISU</p>
+                            <p class="price">PRICE: 120 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/40/47/e5/4047e5f7094edfcf41dead0ead2bad45.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">CAKE ROLL</p>
+                            <p class="price">PRICE: 70 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/48/f1/f5/48f1f5a43b6a2b8e805d876f2d53963f.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">CHOUX CREAM</p>
+                            <p class="price">PRICE: 90 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/c3/49/e1/c349e148bccf74d6ec2e282b3579d594.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">ICE CREAM</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    <div class="menu">
+                        <img src="https://i.pinimg.com/736x/21/f7/c9/21f7c91fb15046eec16dbf3cd24ad04a.jpg" alt="">
+                        <div class="cof-name">
+                            <p class="name">ICE CREAM</p>
+                            <p class="price">PRICE: 65 BAHT</p>
+                        </div>
+                        <div class="control">
+                            <button onclick="minus(this)">-</button>
+                            <input type="text" value="1" class="count">
+                            <button onclick="plus(this)">+</button>
+                            <img src="image/add-to-cart.png" alt="" onclick="addToCart(this)">
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div class="to-home">
+                <button id="but-home" type="button" onclick="toMenu('home')">BACK TO HOME</button>
+            </div>
+
+        </div>
+
+        <div class="foot-content">
+            <h3>REFERRENCES:</h3>
+            <a href="references.txt">All Content</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5-2</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+        body {
+            margin: 4%;
+            font-family: "Mitr", serif;
+            font-size: 16px;
+        }
+
+        .container {
+            /* margin: 100px; */
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-content: center;
+        }
+        .card {
+            /* border: 1px solid rgb(203, 199, 199); */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+            margin: 2px;
+        }
+
+        img {
+            width: 100%;        
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container"></div>
+
+    <script>
+        function info(data) {
+            const container = document.getElementById('container');
+            container.innerHTML = '';
+            let num = 0;
+
+            for (student of data) {
+                num += 1;
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const img = document.createElement('img');
+                if (student.gender == "Male") {
+                    img.src = "http://10.0.15.21/lab/lab5/images/img_male.png";
+                }else {
+                    img.src = "http://10.0.15.21/lab/lab5/images/img_female.png";
+                }
+                const cardInfo = document.createElement('div');
+                cardInfo.innerHTML = `
+                    <strong>${num}. ${student.name}</strong><br>
+                    Physics : ${student.physics}<br>
+                    Mathematics : ${student.maths}<br>
+                    English : ${student.english}
+                `;
+                card.appendChild(img);
+                card.appendChild(cardInfo);
+                container.appendChild(card);
+            }
+            
+        }
+
+        fetch('student-score.json')
+        .then(response => response.json())
+        .then(data => info(data))
+        .catch(error => console.log('error', error))
+    </script>
+    
+    
+</body>
+</html>

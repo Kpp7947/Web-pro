@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+        body {
+            font-family: "Mitr", serif;
+        }
+
+        #picture {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #picture img {
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+        }
+
+        button {
+            padding: 8px;
+            margin-top: 10px;
+            width: 100px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="picture"></div>
+    <button onclick="random()">สร้าง</button>
+
+    <script>
+        let picBase = "http://10.0.15.21/lab/lab3/images/";
+
+        function random() {
+            const picture = document.getElementById("picture");
+            picture.innerHTML = "";
+            for (let i = 0; i < 6; i++) {
+                let picURL = picBase + Math.floor(Math.random() * 10) + ".png";
+                let img = document.createElement("img");
+                img.src = picURL;
+                picture.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>

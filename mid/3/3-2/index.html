@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .content {
+            justify-items: center;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div id="container"></div>
+        <button type="button" onclick="random()">create</button>
+    </div>
+
+
+    <script>
+        // http://10.0.15.21/lab/lab3/images/1.png
+        const base = "http://10.0.15.21/lab/lab3/images/";
+        function random() {
+            const container = document.getElementById('container');
+            container.innerHTML = "";
+
+            for (let i=0; i<6; i++) {
+                const img = document.createElement('img');
+                const picURL = base+Math.floor(Math.random()*10)+'.png';
+                img.src = picURL;
+
+                container.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>

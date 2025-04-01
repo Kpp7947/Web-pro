@@ -1,0 +1,46 @@
+References
+
+//Logo
+- pinterest
+
+//Font
+https://fonts.google.com/specimen/Roboto+Condensed
+
+-------------------------------------------------  Image  ----------------------------------------------------------------------------
+//coffee
+-Generate by ChatGPT
+
+//tea
+-Generate by ChatGPT
+-pinterest
+-https://www.pinterest.com/pin/558727897540757451/
+
+//milk
+-Generate by ChatGPT
+-pinterest
+
+//smoothie
+-Generate by ChatGPT
+-pinterest
+-https://i.pinimg.com/736x/29/3c/4e/293c4edb2a2a5ece1ac8b33e9e6f3bb2.jpg
+-https://i.pinimg.com/736x/21/a3/dc/21a3dcf8f0a45fafb71e66cc8eced04d.jpg
+-https://i.pinimg.com/736x/48/f1/f5/48f1f5a43b6a2b8e805d876f2d53963f.jpg
+-https://i.pinimg.com/736x/40/47/e5/4047e5f7094edfcf41dead0ead2bad45.jpg
+-https://www.pinterest.com/pin/187673509465988145/
+-https://www.pinterest.com/pin/1048986938286753023/
+
+//dessert
+-Generate by ChatGPT
+-pinterest
+-https://i.pinimg.com/736x/de/2f/38/de2f381e7340f1557798d5f42ea75409.jpg
+-https://i.pinimg.com/736x/3a/71/f0/3a71f002fe43ddbf119d5e89f74ab7a6.jpg
+-https://i.pinimg.com/736x/c3/49/e1/c349e148bccf74d6ec2e282b3579d594.jpg
+---------------------------------------------------------------------------------------------------------------------------------------
+
+//Icon -> Flaticon
+-https://www.flaticon.com/free-icon/add-to-cart_3523885?term=cart&page=1&position=14&origin=search&related_id=3523885
+
+//Library
+- SweetAlert2
+
+//Content -> ChatGPT

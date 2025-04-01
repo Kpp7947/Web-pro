@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5</title>
+</head>
+
+<body>
+    <!-- ex1 -->
+    <!-- <p id="out"></p>
+
+    <script>
+        let myObj = {
+            "firstname": "John",
+            "lastname": "Doe",
+            "age": 30,
+            "cars": ["Ford", "BMW", "Fiat"] //array
+        };
+
+        let text = myObj.firstname + ' ' + myObj.lastname + ' (' + myObj.age + ') ';
+        
+        for (let car of myObj.cars)
+            text += car + ' ';
+
+        document.getElementById("out").innerHTML = text
+    </script> -->
+
+    <!-- ex2 -->
+    <!-- <div id="div1"></div>
+    <script>
+        function show(data) {
+            let text = data.squadName + ', ' + data.homeTown + ', ' + data.formed + ', ' + data.members[0].name + ' (' + data.members[0].age + ') ';
+
+            for (let member of data.members) {
+                text += '<h1>' + member.name + ' (' + member.age + ')' + '</h1>'
+                text += '<ul>'
+                for (let power of member.powers)
+                    text += '<li>' + power + '</li>'
+                text += '</ul>';
+            }
+            document.getElementById('div1').innerHTML = text
+        }
+        fetch('superheroes.json')
+            .then(response => response.json()) //string => obj(response.json)
+            .then(data => show(data))
+            .catch(error => console.log('error', error));
+
+    </script> -->
+
+    <!-- ex3 -->
+    <form id="myForm" role="form">
+        <div class="form-group"> <label for='FirstName'>ชื่อ:</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" />
+        </div>
+        <div class="form-group"><label for='LastName'>นามสกุล:</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" />
+        </div>
+        <div class="form-group"><label for='Address'>ที่อยู่</label>
+            <textarea cols="20" class="form-control" rows="5" id="Address" name="Address"></textarea>
+        </div>
+        <div class="form-group"><label for='Country'>ประเทศ:</label>
+            <select id="Country" name="Country">
+                <option value="000" selected="selected">[เลือกประเทศ]</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Laos">Laos</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Indonesia">Brunei</option>
+                <option value="Indonesia">Indonesia</option>
+            </select>
+        </div>
+    </form>
+    <button onclick="SaveDatInForm()">Save data</button>
+    <button onclick="showLocalData()">Show data</button>
+
+    <script>
+
+        function SaveDatInForm() {
+            let fname = document.getElementById("FirstName").value;
+            let lname = document.getElementById("LastName").value;
+            let address = document.getElementById("Address").value;
+            let country = document.getElementById("Country").value;
+
+            // save data to local storage
+            localStorage.setItem('fn', fname);
+            localStorage.setItem('ln', lname);
+            localStorage.setItem('addr', address);
+            localStorage.setItem('ct', country);
+            alert("Data saved");
+        }
+        function showLocalData() {
+            // load data from local storage
+            let fn1 = localStorage.getItem('fn');
+            document.getElementById("FirstName").value = fn1;
+            document.getElementById("LastName").value = localStorage.getItem('ln');
+            document.getElementById("Address").value = localStorage.getItem('addr');
+            document.getElementById("Country").value = localStorage.getItem('ct');
+
+            localStorage.clear();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4-2</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: "Mitr", serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            width: 450px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 5px 5px 5px rgb(182, 178, 178);
+        }
+
+        button {
+            border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgb(182, 178, 178);
+            cursor: pointer;
+            background-color: #007bff;
+        }
+
+        button:hover {
+            background-color: #095cb6;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form role="form">
+            <div class="form-group" id="1">
+                <label for="fname" id="fname">ชื่อ:</label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="form-group" id="2">
+                <label for="lname" id="lname">นามสกุล: </label>
+                <input class="form-control" type="text">
+            </div>
+            <div class="form-group" id="3">
+                <label for="country" id="country">ประเทศ: </label>
+                <select id="country-select" name="country" class="form-control">
+                    <option value="00">-----เลือกประเทศ-----</option>
+                    <option value="Thai">ไทย</option>
+                    <option value="Vietnam">เวียดนาม</option>
+                    <option value="Laos">ลาว</option>
+                    <option value="Malaysia">มาเลเซีย</option>
+                    <option value="Singapore">สิงคโปร์</option>
+                    <option value="Philippines">ฟิลิปปินส์</option>
+                    <option value="Myanmar">เมียนมาร์</option>
+                    <option value="Cambodia">กัมพูชา</option>
+                    <option value="Brunei">บรูไน</option>
+                </select>
+            </div>
+        </form>
+
+        <button type="button" id="button" onclick="change()">เปลี่ยนเป็นภาษาอังกฤษ</button>
+    </div>
+
+    <script>
+        let check = true;
+        const eng = ["First Name:", "Last Name:", "Country:", "Change to thai"];
+        const th = ["ชื่อ:", "นามสกุล:", "ประเทศ:", "เปลี่ยนเป็นภาษาอังกฤษ"];
+        const engOption = ["-----Choose Country-----", "Thai", "Vietnam", "Laos", "Malaysia", "Singapore", "Philipines", "Myanmar", "Cambodia", "Brunei"];
+        const thOption = ["-----เลือกประเทศ-----", "ไทย", "เวียดนาม", "ลาว", "มาเลเซีย", "สิงคโปร์", "ฟิลิปปินส์", "เมียนมาร์", "กัมพูชา", "บรูไน"];
+        
+        function change() {
+            const labels = document.querySelectorAll('label');
+            const btn = document.querySelector('#button');
+            const select = document.querySelector('#country-select');
+
+            if (check == true) {
+                updateLabel(labels[0], eng[0]);
+                updateLabel(labels[1], eng[1]);
+                updateLabel(labels[2], eng[2]);
+                updateButton(btn, eng[3]);
+
+                updateOption(select, engOption);
+
+                check = false;
+            }else {
+                updateLabel(labels[0], th[0]);
+                updateLabel(labels[1], th[1]);
+                updateLabel(labels[2], th[2]);
+                updateButton(btn, th[3]);
+
+                updateOption(select, thOption);
+
+                check = true;
+            }
+        }
+
+        function updateLabel(label, txt) {
+            const newTxt = document.createTextNode(txt);
+            if (label.firstChild) {
+                label.replaceChild(newTxt, label.firstChild);
+            }
+        }
+
+        function updateButton(btn, txt) {
+            const newTxt = document.createTextNode(txt);
+            if (btn.firstChild) {
+                btn.replaceChild(newTxt, btn.firstChild);
+            }            
+        }
+
+        function updateOption(select, txt) {
+            while (select.firstChild) {
+                select.removeChild(select.firstChild);
+            }
+
+            for (let i in txt) {
+                const options = document.createElement('option');
+                const newTxt = document.createTextNode(txt[i]);
+                options.appendChild(newTxt);
+                select.appendChild(options);
+            }
+        }
+    </script>
+
+</body>
+</html>
