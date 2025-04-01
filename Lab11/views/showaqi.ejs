@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>My AQI Data</h2>
+    city_name: <%=data.city_name%> <br>
+    country_name: <%=data.country_code%> <br>
+
+    <% data.data.forEach((item)=>{ %>
+        aqi: <%=item.aqi%> <br>
+        pm10: <%=item.pm10%> <br>
+        pm25: <%=item.pm25%>
+    <% }); %> 
+</body>
+</html>
